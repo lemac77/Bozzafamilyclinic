@@ -1,0 +1,6 @@
+{
+  "name": "Family Clinic",
+  "description": "Premium medical clinic in Vicenza, Italy, serving the American military community, international families, and Italian patients.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

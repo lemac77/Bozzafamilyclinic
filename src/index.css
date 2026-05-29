@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-teal: #086F80;
+  --color-teal-dark: #05505C;
+  --color-gold: #F5A623;
+  --color-gold-dark: #D88E10;
+  --color-cream: #F9F6F1;
+  --color-sand: #E8E0D5;
+  --color-sage: #8FAF95;
+  --color-ink: #1A2332;
+  --color-graphite: #3E4756;
+  --color-mute: #7A8290;
+
+  --font-display: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "DM Mono", monospace;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    overflow-x: clip;
+  }
+
+  /* Support for custom luxury cursor - fallback to pointer to never hide the hardware pointer */
+  @media (pointer: fine) {
+    .custom-cursor-active {
+      cursor: pointer !important;
+    }
+  }
+}
+
+/* Custom classes for typography scale based on clamp */
+.text-hero {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 120px);
+  font-weight: 500;
+  line-height: 0.95;
+}
+
+.text-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, 72px);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.text-h3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.text-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 500;
+}
+
+.text-caption {
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+/* Underline link effect */
+.underline-draw {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-draw::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom left;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.underline-draw:hover::after {
+  transform: scaleX(1);
+}
+
+/* Hide scrollbar of marquees */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
